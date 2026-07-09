@@ -47,7 +47,7 @@ const galleryFigures = screenshots
   .join('')
 
 renderPage(`
-  <main>
+  <main id="main-content" tabindex="-1">
     <section class="hero">
       <div class="wrap hero-inner">
         <p class="hero-eyebrow" data-i18n="hero.eyebrow"></p>

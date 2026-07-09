@@ -12,9 +12,14 @@ export interface Dictionary {
     privacy: { title: string; description: string }
     support: { title: string; description: string }
   }
+  a11y: {
+    skipToContent: string
+  }
   nav: {
     privacy: string
     support: string
+    languageLabel: string
+    footerLabel: string
   }
   hero: {
     eyebrow: string
@@ -75,9 +80,14 @@ export const translations: Record<Locale, Dictionary> = {
         description: 'Get help with BikeSpeed.',
       },
     },
+    a11y: {
+      skipToContent: 'Skip to content',
+    },
     nav: {
       privacy: 'Privacy Policy',
       support: 'Support',
+      languageLabel: 'Language',
+      footerLabel: 'Footer',
     },
     hero: {
       eyebrow: 'For cyclists, by a cyclist',
@@ -218,9 +228,14 @@ export const translations: Record<Locale, Dictionary> = {
         description: 'Få hjelp med BikeSpeed.',
       },
     },
+    a11y: {
+      skipToContent: 'Hopp til innhold',
+    },
     nav: {
       privacy: 'Personvern',
       support: 'Support',
+      languageLabel: 'Språk',
+      footerLabel: 'Bunntekst',
     },
     hero: {
       eyebrow: 'For syklister, av en syklist',

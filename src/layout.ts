@@ -2,14 +2,15 @@ import { applyTranslations, getLocale, setLocale, type Locale } from './i18n/loc
 
 export function renderHeader(): string {
   return `
+    <a class="skip-link" href="#main-content" data-i18n="a11y.skipToContent"></a>
     <header class="site-header">
       <div class="wrap header-inner">
         <a href="index.html" class="wordmark">
           <span class="wordmark-icon" aria-hidden="true">🚴</span>BikeSpeed
         </a>
-        <div class="lang-selector" role="group" aria-label="Language">
-          <button type="button" data-locale="en">EN</button>
-          <button type="button" data-locale="nb">NO</button>
+        <div class="lang-selector" role="group" data-i18n-attr="aria-label:nav.languageLabel">
+          <button type="button" data-locale="en" aria-label="English">EN</button>
+          <button type="button" data-locale="nb" aria-label="Norwegian">NO</button>
         </div>
       </div>
     </header>
@@ -20,7 +21,7 @@ export function renderFooter(): string {
   return `
     <footer class="site-footer">
       <div class="wrap footer-inner">
-        <nav class="footer-links">
+        <nav class="footer-links" data-i18n-attr="aria-label:nav.footerLabel">
           <a href="privacy.html" data-i18n="nav.privacy"></a>
           <a href="support.html" data-i18n="nav.support"></a>
           <a href="https://github.com/klekanger/BikeSpeed" target="_blank" rel="noopener">GitHub</a>

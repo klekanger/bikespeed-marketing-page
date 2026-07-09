@@ -10,7 +10,7 @@ const faqItems = renderI18nList(
 )
 
 renderPage(`
-  <main class="page-content">
+  <main id="main-content" tabindex="-1" class="page-content">
     <div class="wrap">
       <h1 data-i18n="support.title"></h1>
       <p class="page-updated" data-i18n="support.intro"></p>
