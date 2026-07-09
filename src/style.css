@@ -306,45 +306,60 @@ a {
   border-color: var(--accent);
 }
 
-.hero-gauge-wrap {
-  position: relative;
-}
-
-.hero-gauge-glow {
-  position: absolute;
-  inset: -30px;
-  background: radial-gradient(circle, rgba(255, 106, 61, 0.2), transparent 70%);
-  filter: blur(4px);
+/*
+ * The dial's metallic rim: SwiftUI's `Gradient.metallicBezel` swept as a cone from three o'clock,
+ * masked to an annulus. 95.122% is the ring's inner/outer radius ratio (89.7 / 94.3 in gauge units).
+ */
+.hero-gauge-bezel {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 90deg,
+    #cccccc,
+    #404040,
+    #e6e6e6,
+    #333333,
+    #a6a6a6,
+    #4d4d4d,
+    #cccccc
+  );
+  -webkit-mask: radial-gradient(closest-side, transparent 94.9%, #000 95.4%);
+  mask: radial-gradient(closest-side, transparent 94.9%, #000 95.4%);
 }
 
 .hero-gauge {
-  position: relative;
   width: 100%;
   max-width: 340px;
   height: auto;
-  overflow: visible;
   display: block;
   margin: 0 auto;
 }
 
 .gauge-needle-group {
-  transform-origin: 100px 100px;
+  transform-box: view-box;
+  transform-origin: center;
   animation: needleSweep 1.5s cubic-bezier(0.2, 0.9, 0.25, 1) both;
 }
 
+/*
+ * Sweeps up from a zero reading and settles on the speed the digital readout shows. Both angles are
+ * set as custom properties by `needle()` in gauge.ts, which owns the scale; the 60% stop overshoots
+ * the target by a hand-tuned 9.5deg to echo the spring the app animates its needle with.
+ */
 @keyframes needleSweep {
   0% {
-    transform: rotate(5deg) scale(0.85);
+    transform: rotate(var(--needle-start));
     opacity: 0;
   }
 
   60% {
-    transform: rotate(-70deg) scale(1);
+    transform: rotate(calc(var(--needle-angle) + 9.5deg));
     opacity: 1;
   }
 
   100% {
-    transform: rotate(-55deg) scale(1);
+    transform: rotate(var(--needle-angle));
     opacity: 1;
   }
 }
@@ -371,7 +386,7 @@ a {
 
   .gauge-needle-group {
     animation: none;
-    transform: rotate(-55deg);
+    transform: rotate(var(--needle-angle));
   }
 }
 
