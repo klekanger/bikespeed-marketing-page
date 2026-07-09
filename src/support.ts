@@ -14,7 +14,9 @@ renderPage(`
     <div class="wrap">
       <h1 data-i18n="support.title"></h1>
       <p class="page-updated" data-i18n="support.intro"></p>
-      ${faqItems}
+      <div class="faq-list">
+        ${faqItems}
+      </div>
       <div class="support-cta">
         <a
           class="btn btn-primary"

@@ -4,9 +4,15 @@ export function renderHeader(): string {
   return `
     <a class="skip-link" href="#main-content" data-i18n="a11y.skipToContent"></a>
     <header class="site-header">
-      <div class="wrap header-inner">
+      <div class="header-inner">
         <a href="index.html" class="wordmark">
-          <span class="wordmark-icon" aria-hidden="true">🚴</span>BikeSpeed
+          <span class="wordmark-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="22" height="22">
+              <circle cx="12" cy="13" r="7" fill="none" stroke="var(--accent-2)" stroke-width="1.6" />
+              <line x1="12" y1="13" x2="16" y2="8" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" />
+            </svg>
+          </span>
+          BikeSpeed
         </a>
         <div class="lang-selector" role="group" data-i18n-attr="aria-label:nav.languageLabel">
           <button type="button" data-locale="en" aria-label="English">EN</button>
@@ -55,10 +61,26 @@ export function initLayout(): void {
   })
 }
 
+function initReveal(): void {
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible')
+          io.unobserve(entry.target)
+        }
+      })
+    },
+    { threshold: 0.15 },
+  )
+  document.querySelectorAll('[data-reveal]').forEach((el) => io.observe(el))
+}
+
 export function renderPage(content: string): void {
   document.querySelector<HTMLDivElement>('#app')!.innerHTML = `${renderHeader()}${content}${renderFooter()}`
   initLayout()
   applyTranslations()
+  initReveal()
 }
 
 export function renderI18nList(

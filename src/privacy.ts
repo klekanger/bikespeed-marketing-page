@@ -14,7 +14,9 @@ renderPage(`
     <div class="wrap">
       <h1 data-i18n="privacy.title"></h1>
       <p class="page-updated" data-i18n="privacy.updated"></p>
-      ${sections}
+      <div class="section-list">
+        ${sections}
+      </div>
     </div>
   </main>
 `)

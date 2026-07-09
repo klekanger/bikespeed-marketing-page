@@ -1,7 +1,6 @@
 export type Locale = 'en' | 'nb'
 
 export interface Feature {
-  icon: string
   title: string
   description: string
 }
@@ -101,39 +100,28 @@ export const translations: Record<Locale, Dictionary> = {
       title: 'Everything you need, nothing you don’t',
       items: [
         {
-          icon: '⚡',
           title: 'Big, easy-to-read speedometer',
           description: 'A clear, glanceable display designed to be read at a glance while riding.',
         },
         {
-          icon: '🔀',
           title: 'Metric & imperial units',
           description: 'Switch freely between km/h and mph, whatever you’re used to.',
         },
         {
-          icon: '📝',
           title: 'Trip logging',
           description: 'Every ride is logged with average speed, max speed, distance and duration.',
         },
         {
-          icon: '📊',
           title: 'Detailed per-trip stats',
           description: 'Dig into the numbers for any past ride, whenever you want.',
         },
         {
-          icon: '⛰️',
           title: 'Elevation profile',
           description: 'See the elevation profile for every ride you’ve recorded.',
         },
         {
-          icon: '🎚️',
           title: 'Real-time altitude',
           description: 'Your current altitude above sea level, updated live.',
-        },
-        {
-          icon: '🚲',
-          title: 'Handlebar-friendly UI',
-          description: 'A clean, simple interface that works great mounted on your bars.',
         },
       ],
     },
@@ -249,39 +237,28 @@ export const translations: Record<Locale, Dictionary> = {
       title: 'Alt du trenger, ingenting du ikke trenger',
       items: [
         {
-          icon: '⚡',
           title: 'Stort og lettlest speedometer',
           description: 'En tydelig visning som er enkel å lese med et raskt blikk mens du sykler.',
         },
         {
-          icon: '🔀',
           title: 'Metriske og imperiale enheter',
           description: 'Bytt fritt mellom km/t og mph, akkurat som du foretrekker.',
         },
         {
-          icon: '📝',
           title: 'Loggfør sykkelturer',
           description: 'Hver tur logges med gjennomsnittsfart, maksfart, distanse og varighet.',
         },
         {
-          icon: '📊',
           title: 'Detaljert statistikk per tur',
           description: 'Dykk ned i tallene for enhver tidligere tur, når du vil.',
         },
         {
-          icon: '⛰️',
           title: 'Høydeprofil',
           description: 'Se høydeprofilen for alle turer du har registrert.',
         },
         {
-          icon: '🎚️',
           title: 'Høyde over havet i sanntid',
           description: 'Din nåværende høyde over havet, oppdatert i sanntid.',
-        },
-        {
-          icon: '🚲',
-          title: 'Grensesnitt tilpasset styret',
-          description: 'Et enkelt og oversiktlig grensesnitt som passer godt montert på sykkelstyret.',
         },
       ],
     },
