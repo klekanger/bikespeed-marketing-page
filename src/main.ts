@@ -1,4 +1,5 @@
 import './style.css'
+import { renderGauge, syncGaugeReadout } from './gauge'
 import { renderPage } from './layout'
 import { getLocale, type Locale } from './i18n/locale'
 import { translations } from './i18n/translations'
@@ -79,62 +80,7 @@ renderPage(`
           </div>
         </div>
 
-        <div class="hero-gauge-wrap" aria-hidden="true">
-          <div class="hero-gauge-glow"></div>
-          <svg viewBox="0 0 200 210" class="hero-gauge">
-            <defs>
-              <linearGradient id="chrome" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#eceef1" />
-                <stop offset="28%" stop-color="#8b8d94" />
-                <stop offset="55%" stop-color="#cfd1d6" />
-                <stop offset="100%" stop-color="#55575e" />
-              </linearGradient>
-              <radialGradient id="hub" cx="35%" cy="30%" r="75%">
-                <stop offset="0%" stop-color="#e6e7eb" />
-                <stop offset="100%" stop-color="#6c6f77" />
-              </radialGradient>
-            </defs>
-
-            <circle cx="100" cy="100" r="94" fill="none" stroke="url(#chrome)" stroke-width="13" />
-            <circle cx="100" cy="100" r="86" fill="#08090c" />
-
-            <path d="M32.4 139 A78 78 0 1 1 167.7 139" fill="none" stroke="#23262f" stroke-width="6" stroke-linecap="round" />
-            <path d="M176.8 86.4 A78 78 0 0 1 167.7 139" fill="none" stroke="var(--accent)" stroke-width="6" stroke-linecap="round" />
-
-            <g transform="rotate(-120 100 100)"><line x1="100" y1="26" x2="100" y2="42" stroke="#f5f6f8" stroke-width="3" stroke-linecap="round" /></g>
-            <g transform="rotate(-80 100 100)"><line x1="100" y1="26" x2="100" y2="42" stroke="#f5f6f8" stroke-width="3" stroke-linecap="round" /></g>
-            <g transform="rotate(-40 100 100)"><line x1="100" y1="26" x2="100" y2="42" stroke="#f5f6f8" stroke-width="3" stroke-linecap="round" /></g>
-            <line x1="100" y1="26" x2="100" y2="42" stroke="#f5f6f8" stroke-width="3" stroke-linecap="round" />
-            <g transform="rotate(40 100 100)"><line x1="100" y1="26" x2="100" y2="42" stroke="#f5f6f8" stroke-width="3" stroke-linecap="round" /></g>
-            <g transform="rotate(80 100 100)"><line x1="100" y1="26" x2="100" y2="42" stroke="#f5f6f8" stroke-width="3" stroke-linecap="round" /></g>
-            <g transform="rotate(120 100 100)"><line x1="100" y1="26" x2="100" y2="42" stroke="#f5f6f8" stroke-width="3" stroke-linecap="round" /></g>
-
-            <g transform="rotate(-100 100 100)"><line x1="100" y1="30" x2="100" y2="40" stroke="#565b68" stroke-width="2" stroke-linecap="round" /></g>
-            <g transform="rotate(-60 100 100)"><line x1="100" y1="30" x2="100" y2="40" stroke="#565b68" stroke-width="2" stroke-linecap="round" /></g>
-            <g transform="rotate(-20 100 100)"><line x1="100" y1="30" x2="100" y2="40" stroke="#565b68" stroke-width="2" stroke-linecap="round" /></g>
-            <g transform="rotate(20 100 100)"><line x1="100" y1="30" x2="100" y2="40" stroke="#565b68" stroke-width="2" stroke-linecap="round" /></g>
-            <g transform="rotate(60 100 100)"><line x1="100" y1="30" x2="100" y2="40" stroke="#565b68" stroke-width="2" stroke-linecap="round" /></g>
-            <g transform="rotate(100 100 100)"><line x1="100" y1="30" x2="100" y2="40" stroke="#565b68" stroke-width="2" stroke-linecap="round" /></g>
-
-            <g transform="rotate(-120 100 100)"><text x="100" y="54" transform="rotate(120 100 54)" fill="#f5f6f8" font-size="15" font-weight="700" text-anchor="middle" font-family="'Space Grotesk',system-ui">0</text></g>
-            <g transform="rotate(-80 100 100)"><text x="100" y="54" transform="rotate(80 100 54)" fill="#f5f6f8" font-size="15" font-weight="700" text-anchor="middle" font-family="'Space Grotesk',system-ui">10</text></g>
-            <g transform="rotate(-40 100 100)"><text x="100" y="54" transform="rotate(40 100 54)" fill="#f5f6f8" font-size="15" font-weight="700" text-anchor="middle" font-family="'Space Grotesk',system-ui">20</text></g>
-            <text x="100" y="54" fill="#f5f6f8" font-size="15" font-weight="700" text-anchor="middle" font-family="'Space Grotesk',system-ui">30</text>
-            <g transform="rotate(40 100 100)"><text x="100" y="54" transform="rotate(-40 100 54)" fill="#f5f6f8" font-size="15" font-weight="700" text-anchor="middle" font-family="'Space Grotesk',system-ui">40</text></g>
-            <g transform="rotate(80 100 100)"><text x="100" y="54" transform="rotate(-80 100 54)" fill="#f5f6f8" font-size="15" font-weight="700" text-anchor="middle" font-family="'Space Grotesk',system-ui">50</text></g>
-            <g transform="rotate(120 100 100)"><text x="100" y="54" transform="rotate(-120 100 54)" fill="#f5f6f8" font-size="15" font-weight="700" text-anchor="middle" font-family="'Space Grotesk',system-ui">60</text></g>
-
-            <g class="gauge-needle-group">
-              <polygon points="100,25 95,101 105,101" fill="var(--accent)" />
-            </g>
-            <circle cx="100" cy="100" r="13" fill="url(#hub)" stroke="#4b4f58" stroke-width="1.5" />
-            <circle cx="100" cy="100" r="4.5" fill="#3a3d44" />
-
-            <text x="100" y="150" fill="#7a8090" font-size="11" font-weight="600" letter-spacing="2" text-anchor="middle" font-family="'Space Grotesk',system-ui">KM/H</text>
-            <rect x="74" y="159" width="52" height="34" rx="8" fill="#12151c" stroke="#23262f" stroke-width="1.5" />
-            <text x="100" y="184" fill="var(--accent)" font-size="22" font-weight="700" text-anchor="middle" font-family="'Space Grotesk',system-ui">15</text>
-          </svg>
-        </div>
+        ${renderGauge()}
       </div>
     </section>
 
@@ -179,6 +125,8 @@ renderPage(`
     </section>
   </main>
 `)
+
+syncGaugeReadout()
 
 function updateScreenshots(locale: Locale): void {
   document.querySelectorAll<HTMLImageElement>('[data-screenshot]').forEach((img) => {
