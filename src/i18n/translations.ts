@@ -89,7 +89,7 @@ export const translations: Record<Locale, Dictionary> = {
       footerLabel: 'Footer',
     },
     hero: {
-      eyebrow: 'For cyclists, by a cyclist',
+      eyebrow: 'Retro speedometer app',
       title: 'BikeSpeed',
       tagline: 'A simple, free GPS speedometer for your bike rides.',
       ctaAppStore: 'Download on the App Store',
@@ -101,23 +101,28 @@ export const translations: Record<Locale, Dictionary> = {
       items: [
         {
           title: 'Big, easy-to-read speedometer',
-          description: 'A clear, glanceable display designed to be read at a glance while riding.',
+          description:
+            'A clear, glanceable display designed to be read at a glance while riding.',
         },
         {
           title: 'Metric & imperial units',
-          description: 'Switch freely between km/h and mph, whatever you’re used to.',
+          description:
+            'Switch freely between km/h and mph, whatever you’re used to.',
         },
         {
           title: 'Trip logging',
-          description: 'Every ride is logged with average speed, max speed, distance and duration.',
+          description:
+            'Every ride is logged with average speed, max speed, distance and duration.',
         },
         {
           title: 'Detailed per-trip stats',
-          description: 'Dig into the numbers for any past ride, whenever you want.',
+          description:
+            'Dig into the numbers for any past ride, whenever you want.',
         },
         {
           title: 'Elevation profile',
-          description: 'See the elevation profile for every ride you’ve recorded.',
+          description:
+            'See the elevation profile for every ride you’ve recorded.',
         },
         {
           title: 'Real-time altitude',
@@ -186,11 +191,13 @@ export const translations: Record<Locale, Dictionary> = {
         },
         {
           question: 'Where is my ride data stored?',
-          answer: 'All ride history is stored locally on your device — nothing is uploaded anywhere.',
+          answer:
+            'All ride history is stored locally on your device — nothing is uploaded anywhere.',
         },
         {
           question: 'I found a bug or have a feature request.',
-          answer: 'Please open an issue on the GitHub repository — that’s the fastest way to reach the developer.',
+          answer:
+            'Please open an issue on the GitHub repository — that’s the fastest way to reach the developer.',
         },
         {
           question: 'Is BikeSpeed really free?',
@@ -226,31 +233,40 @@ export const translations: Record<Locale, Dictionary> = {
       footerLabel: 'Bunntekst',
     },
     hero: {
-      eyebrow: 'For syklister, av en syklist',
+      eyebrow: 'Retro speedometer-app',
       title: 'BikeSpeed',
       tagline: 'Et enkelt, gratis GPS-speedometer for sykkelturene dine.',
       ctaAppStore: 'Last ned i App Store',
       ctaGithub: 'Se på GitHub',
     },
-    highlights: ['100% gratis', 'Ingen reklame', 'Ingen abonnementer', 'Åpen kildekode'],
+    highlights: [
+      '100% gratis',
+      'Ingen reklame',
+      'Ingen abonnementer',
+      'Åpen kildekode',
+    ],
     features: {
       title: 'Alt du trenger, ingenting du ikke trenger',
       items: [
         {
           title: 'Stort og lettlest speedometer',
-          description: 'En tydelig visning som er enkel å lese med et raskt blikk mens du sykler.',
+          description:
+            'En tydelig visning som er enkel å lese med et raskt blikk mens du sykler.',
         },
         {
           title: 'Metriske og imperiale enheter',
-          description: 'Bytt fritt mellom km/t og mph, akkurat som du foretrekker.',
+          description:
+            'Bytt fritt mellom km/t og mph, akkurat som du foretrekker.',
         },
         {
           title: 'Loggfør sykkelturer',
-          description: 'Hver tur logges med gjennomsnittsfart, maksfart, distanse og varighet.',
+          description:
+            'Hver tur logges med gjennomsnittsfart, maksfart, distanse og varighet.',
         },
         {
           title: 'Detaljert statistikk per tur',
-          description: 'Dykk ned i tallene for enhver tidligere tur, når du vil.',
+          description:
+            'Dykk ned i tallene for enhver tidligere tur, når du vil.',
         },
         {
           title: 'Høydeprofil',
@@ -323,15 +339,18 @@ export const translations: Record<Locale, Dictionary> = {
         },
         {
           question: 'Hvor lagres turdataene mine?',
-          answer: 'All turhistorikk lagres lokalt på enheten din — ingenting lastes opp noe sted.',
+          answer:
+            'All turhistorikk lagres lokalt på enheten din — ingenting lastes opp noe sted.',
         },
         {
           question: 'Jeg har funnet en feil eller har et forslag.',
-          answer: 'Opprett gjerne en sak (issue) i GitHub-repoet — det er raskeste vei til utvikleren.',
+          answer:
+            'Opprett gjerne en sak (issue) i GitHub-repoet — det er raskeste vei til utvikleren.',
         },
         {
           question: 'Er BikeSpeed virkelig gratis?',
-          answer: 'Ja. Ingen reklame, ingen abonnementer, ingen kjøp i appen — aldri.',
+          answer:
+            'Ja. Ingen reklame, ingen abonnementer, ingen kjøp i appen — aldri.',
         },
       ],
       issuesCta: 'Opprett en sak på GitHub',
