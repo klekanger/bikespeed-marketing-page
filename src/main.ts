@@ -5,10 +5,10 @@ import { getLocale, type Locale } from './i18n/locale'
 import { translations } from './i18n/translations'
 
 const screenshots = [
-  { key: 'gauge', file: '01_gauge.png' },
-  { key: 'trip', file: '02_trip.png' },
-  { key: 'settings', file: '03_settings.png' },
-  { key: 'log', file: 'log.png' },
+  { key: 'gauge', file: '01_gauge.webp' },
+  { key: 'trip', file: '02_trip.webp' },
+  { key: 'settings', file: '03_settings.webp' },
+  { key: 'log', file: 'log.webp' },
 ] as const
 
 const featureIcons = [
