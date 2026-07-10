@@ -1,4 +1,9 @@
-import { applyTranslations, getLocale, setLocale, type Locale } from './i18n/locale'
+import {
+  applyTranslations,
+  getLocale,
+  setLocale,
+  type Locale,
+} from "./i18n/locale";
 
 export function renderHeader(): string {
   return `
@@ -6,12 +11,14 @@ export function renderHeader(): string {
     <header class="site-header">
       <div class="header-inner">
         <a href="index.html" class="wordmark">
-          <span class="wordmark-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" width="22" height="22">
-              <circle cx="12" cy="13" r="7" fill="none" stroke="var(--accent-2)" stroke-width="1.6" />
-              <line x1="12" y1="13" x2="16" y2="8" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" />
-            </svg>
-          </span>
+          <img
+            class="wordmark-icon"
+            src="/web-app-manifest-192x192.png"
+            alt=""
+            aria-hidden="true"
+            width="32"
+            height="32"
+          />
           BikeSpeed
         </a>
         <div class="lang-selector" role="group" data-i18n-attr="aria-label:nav.languageLabel">
@@ -20,7 +27,7 @@ export function renderHeader(): string {
         </div>
       </div>
     </header>
-  `
+  `;
 }
 
 export function renderFooter(): string {
@@ -35,30 +42,35 @@ export function renderFooter(): string {
         <p class="footer-copy" data-i18n="footer.copyright"></p>
       </div>
     </footer>
-  `
+  `;
 }
 
-function updateActiveButtons(buttons: NodeListOf<HTMLButtonElement>, locale: Locale): void {
+function updateActiveButtons(
+  buttons: NodeListOf<HTMLButtonElement>,
+  locale: Locale,
+): void {
   buttons.forEach((btn) => {
-    btn.classList.toggle('is-active', btn.dataset.locale === locale)
-    btn.setAttribute('aria-pressed', String(btn.dataset.locale === locale))
-  })
+    btn.classList.toggle("is-active", btn.dataset.locale === locale);
+    btn.setAttribute("aria-pressed", String(btn.dataset.locale === locale));
+  });
 }
 
 export function initLayout(): void {
-  const buttons = document.querySelectorAll<HTMLButtonElement>('.lang-selector button')
-  updateActiveButtons(buttons, getLocale())
+  const buttons = document.querySelectorAll<HTMLButtonElement>(
+    ".lang-selector button",
+  );
+  updateActiveButtons(buttons, getLocale());
 
   buttons.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const locale = btn.dataset.locale as Locale
-      setLocale(locale)
-    })
-  })
+    btn.addEventListener("click", () => {
+      const locale = btn.dataset.locale as Locale;
+      setLocale(locale);
+    });
+  });
 
-  document.addEventListener('bikespeed:localechange', (e) => {
-    updateActiveButtons(buttons, (e as CustomEvent<Locale>).detail)
-  })
+  document.addEventListener("bikespeed:localechange", (e) => {
+    updateActiveButtons(buttons, (e as CustomEvent<Locale>).detail);
+  });
 }
 
 function initReveal(): void {
@@ -66,21 +78,22 @@ function initReveal(): void {
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible')
-          io.unobserve(entry.target)
+          entry.target.classList.add("is-visible");
+          io.unobserve(entry.target);
         }
-      })
+      });
     },
     { threshold: 0.15 },
-  )
-  document.querySelectorAll('[data-reveal]').forEach((el) => io.observe(el))
+  );
+  document.querySelectorAll("[data-reveal]").forEach((el) => io.observe(el));
 }
 
 export function renderPage(content: string): void {
-  document.querySelector<HTMLDivElement>('#app')!.innerHTML = `${renderHeader()}${content}${renderFooter()}`
-  initLayout()
-  applyTranslations()
-  initReveal()
+  document.querySelector<HTMLDivElement>("#app")!.innerHTML =
+    `${renderHeader()}${content}${renderFooter()}`;
+  initLayout();
+  applyTranslations();
+  initReveal();
 }
 
 export function renderI18nList(
@@ -97,5 +110,5 @@ export function renderI18nList(
         <p data-i18n="${basePath}.${i}.${fields[1]}"></p>
       </div>
     `,
-  ).join('')
+  ).join("");
 }
