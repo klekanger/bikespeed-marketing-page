@@ -26,12 +26,13 @@ const MINOR_STEP = MAJOR_STEP / MINOR_PER_MAJOR
 const TOTAL_MINOR_TICKS = Math.floor(MAX_SPEED / MINOR_STEP)
 
 /** The speed the gauge comes to rest at. Drives both the needle angle and the digital readout. */
-const DISPLAY_SPEED = 15
+const DISPLAY_SPEED = 18
 
 const BEZEL_WIDTH = R * 0.05
 
 /** The readout uses `design: .rounded` in the app; the rest of the dial uses the system face. */
-const READOUT_FONT = "ui-rounded, 'SF Pro Rounded', 'Space Grotesk', system-ui, sans-serif"
+const READOUT_FONT =
+  "ui-rounded, 'SF Pro Rounded', 'Space Grotesk', system-ui, sans-serif"
 
 /**
  * SwiftUI sizes the unit label and readout stack from font metrics and offsets the pair by
