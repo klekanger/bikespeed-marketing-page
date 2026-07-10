@@ -52,17 +52,22 @@ function pt(radius: number, deg: number): { x: number; y: number } {
 }
 
 /**
- * `Gradient.metallicBezel`, stroked around the rim. SVG has no conic gradient, so the ring is a
- * CSS `conic-gradient` in a foreignObject, masked down to an annulus. Sizing the foreignObject in
- * user-space units keeps it locked to the dial at any rendered size, and one smooth gradient beats
- * the colour banding you get from approximating the cone with stroked arc segments.
+ * `Gradient.metallicBezel`, swept around the rim. SVG has no conic gradient, and one smooth CSS
+ * `conic-gradient` beats the colour banding you get from approximating the cone with stroked arc
+ * segments — so the ring is an HTML element layered over the dial rather than part of the drawing.
+ *
+ * It has to be a *sibling* of the svg, not a foreignObject inside it: Safari lays foreignObject
+ * children out in CSS pixels and never applies the viewBox scale, so the ring renders undersized and
+ * anchored to the top-left. Positioning it as a percentage of the same square box sidesteps scaling
+ * entirely. Both percentages come from the gauge constants so the ring cannot drift off the face.
  */
 function bezel(): string {
   const outer = R + BEZEL_WIDTH / 2
-  const origin = round(CENTER - outer)
-  const size = round(outer * 2)
+  const inner = R - BEZEL_WIDTH / 2
+  const inset = round(((CENTER - outer) / SIDE) * 100)
+  const ratio = round((inner / outer) * 100)
 
-  return `<foreignObject x="${origin}" y="${origin}" width="${size}" height="${size}"><div xmlns="http://www.w3.org/1999/xhtml" class="hero-gauge-bezel"></div></foreignObject>`
+  return `<div class="hero-gauge-bezel" style="--bezel-inset: ${inset}%; --bezel-ratio: ${ratio}%"></div>`
 }
 
 /** The orange arc hugging the top of the scale, from 85% to full. */
@@ -145,7 +150,8 @@ function readout(): string {
 
 export function renderGauge(): string {
   return `
-    <svg viewBox="0 0 ${SIDE} ${SIDE}" class="hero-gauge" aria-hidden="true">
+    <div class="hero-gauge-wrap" aria-hidden="true">
+    <svg viewBox="0 0 ${SIDE} ${SIDE}" class="hero-gauge">
       <defs>
         <radialGradient id="gaugeFace" gradientUnits="userSpaceOnUse" cx="${CENTER}" cy="${CENTER}" r="${R}">
           <stop offset="0%" stop-color="#262626" />
@@ -165,13 +171,14 @@ export function renderGauge(): string {
       </defs>
 
       <circle cx="${CENTER}" cy="${CENTER}" r="${R}" fill="url(#gaugeFace)" />
-      ${bezel()}
       ${dangerArc()}
       ${ticksAndLabels()}
       ${needle()}
       ${hub()}
       ${readout()}
     </svg>
+    ${bezel()}
+    </div>
   `
 }
 

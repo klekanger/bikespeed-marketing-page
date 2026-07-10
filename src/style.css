@@ -306,13 +306,29 @@ a {
   border-color: var(--accent);
 }
 
+.hero-gauge-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 340px;
+  margin: 0 auto;
+}
+
+.hero-gauge {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 /*
- * The dial's metallic rim: SwiftUI's `Gradient.metallicBezel` swept as a cone from three o'clock,
- * masked to an annulus. 95.122% is the ring's inner/outer radius ratio (89.7 / 94.3 in gauge units).
+ * The dial's metallic rim, layered over the face: SwiftUI's `Gradient.metallicBezel` swept as a cone
+ * from three o'clock, masked down to an annulus. Nothing else on the dial reaches this far out, so
+ * painting it last covers nothing. `--bezel-inset` and `--bezel-ratio` (the ring's inner/outer radius
+ * ratio) are set inline by `bezel()` in gauge.ts, which owns the geometry. The half-percent feather
+ * across the two mask stops is what keeps the inner edge from aliasing.
  */
 .hero-gauge-bezel {
-  width: 100%;
-  height: 100%;
+  position: absolute;
+  inset: var(--bezel-inset);
   border-radius: 50%;
   background: conic-gradient(
     from 90deg,
@@ -324,16 +340,16 @@ a {
     #4d4d4d,
     #cccccc
   );
-  -webkit-mask: radial-gradient(closest-side, transparent 94.9%, #000 95.4%);
-  mask: radial-gradient(closest-side, transparent 94.9%, #000 95.4%);
-}
-
-.hero-gauge {
-  width: 100%;
-  max-width: 340px;
-  height: auto;
-  display: block;
-  margin: 0 auto;
+  -webkit-mask: radial-gradient(
+    closest-side,
+    transparent calc(var(--bezel-ratio) - 0.25%),
+    #000 calc(var(--bezel-ratio) + 0.25%)
+  );
+  mask: radial-gradient(
+    closest-side,
+    transparent calc(var(--bezel-ratio) - 0.25%),
+    #000 calc(var(--bezel-ratio) + 0.25%)
+  );
 }
 
 .gauge-needle-group {
