@@ -5,7 +5,7 @@
   --text: #b7bcc8;
   --text-h: #f5f6f8;
   --text-dim: #7a8090;
-  --accent: #ff6a3d;
+  --accent: #FF9230;
   --accent-2: #ffb454;
   --accent-bg: rgba(255, 106, 61, 0.12);
   --accent-border: rgba(255, 106, 61, 0.45);
@@ -168,12 +168,9 @@ a {
   flex: none;
   width: 32px;
   height: 32px;
-  border-radius: 50%;
-  background: #000;
-  border: 2px solid var(--accent);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  /* Matches the corner curvature baked into the icon artwork. */
+  border-radius: 22%;
+  display: block;
 }
 
 .lang-selector {
@@ -330,26 +327,20 @@ a {
   position: absolute;
   inset: var(--bezel-inset);
   border-radius: 50%;
-  background: conic-gradient(
-    from 90deg,
-    #cccccc,
-    #404040,
-    #e6e6e6,
-    #333333,
-    #a6a6a6,
-    #4d4d4d,
-    #cccccc
-  );
-  -webkit-mask: radial-gradient(
-    closest-side,
-    transparent calc(var(--bezel-ratio) - 0.25%),
-    #000 calc(var(--bezel-ratio) + 0.25%)
-  );
-  mask: radial-gradient(
-    closest-side,
-    transparent calc(var(--bezel-ratio) - 0.25%),
-    #000 calc(var(--bezel-ratio) + 0.25%)
-  );
+  background: conic-gradient(from 90deg,
+      #cccccc,
+      #404040,
+      #e6e6e6,
+      #333333,
+      #a6a6a6,
+      #4d4d4d,
+      #cccccc);
+  -webkit-mask: radial-gradient(closest-side,
+      transparent calc(var(--bezel-ratio) - 0.25%),
+      #000 calc(var(--bezel-ratio) + 0.25%));
+  mask: radial-gradient(closest-side,
+      transparent calc(var(--bezel-ratio) - 0.25%),
+      #000 calc(var(--bezel-ratio) + 0.25%));
 }
 
 .gauge-needle-group {
@@ -370,7 +361,7 @@ a {
   }
 
   60% {
-    transform: rotate(calc(var(--needle-angle) + 9.5deg));
+    transform: rotate(calc(var(--needle-angle) + 25deg));
     opacity: 1;
   }
 
