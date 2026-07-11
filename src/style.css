@@ -10,6 +10,7 @@
   --accent-bg: rgba(255, 106, 61, 0.12);
   --accent-border: rgba(255, 106, 61, 0.45);
   --accent-shadow: rgba(255, 106, 61, 0.35) 0 10px 25px -5px;
+  --accent-glow: rgba(255, 146, 48, 0.5);
   --shadow: rgba(0, 0, 0, 0.4) 0 10px 25px -5px, rgba(0, 0, 0, 0.3) 0 4px 8px -4px;
 
   --sans: 'Inter', system-ui, 'Segoe UI', Roboto, sans-serif;
@@ -258,7 +259,14 @@ a {
 }
 
 .hero-ctas {
+  /*
+   * Shared height/width keep the App Store badge and GitHub button the same size.
+   * The width matches the badge SVG's aspect ratio (119.664:40) at --cta-height.
+   */
+  --cta-height: 57px;
+  --cta-width: 170.5px;
   display: flex;
+  align-items: center;
   gap: 14px;
   margin-top: 32px;
   flex-wrap: wrap;
@@ -266,6 +274,18 @@ a {
   @media (max-width: 900px) {
     justify-content: center;
   }
+}
+
+.hero-ctas .btn-secondary {
+  gap: 8px;
+  width: var(--cta-width);
+  height: var(--cta-height);
+  padding: 14px 16px;
+  white-space: nowrap;
+}
+
+.btn-icon {
+  flex: none;
 }
 
 .hero-ctas .btn-primary {
@@ -300,7 +320,36 @@ a {
 }
 
 .btn-secondary:hover {
-  border-color: var(--accent);
+  box-shadow: 0 0 24px var(--accent-glow);
+}
+
+.btn-cta {
+  gap: 8px;
+  width: var(--cta-width);
+  height: var(--cta-height);
+  padding: 14px 16px;
+  white-space: nowrap;
+}
+
+.btn-appstore {
+  display: inline-flex;
+  align-items: center;
+  transition: transform 0.15s;
+}
+
+.btn-appstore:hover {
+  transform: translateY(-2px);
+}
+
+.btn-appstore:hover img {
+  filter: drop-shadow(0 0 14px var(--accent-glow));
+}
+
+.btn-appstore img {
+  display: block;
+  height: var(--cta-height);
+  width: var(--cta-width);
+  transition: filter 0.15s;
 }
 
 .hero-gauge-wrap {
