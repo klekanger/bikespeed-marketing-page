@@ -308,6 +308,12 @@ a {
   width: 100%;
 
   margin: 0 auto;
+
+
+  @media (max-width: 900px) {
+    max-width: 340px;
+  }
+
 }
 
 .hero-gauge {
@@ -450,7 +456,7 @@ a {
   margin-top: 32px;
   border-bottom: 1px solid var(--border);
 
-  @media (max-width: 600px) {
+  @media (max-width: 640px) {
     grid-template-columns: 1fr;
   }
 }
