@@ -12,8 +12,8 @@
   --accent-shadow: rgba(255, 106, 61, 0.35) 0 10px 25px -5px;
   --shadow: rgba(0, 0, 0, 0.4) 0 10px 25px -5px, rgba(0, 0, 0, 0.3) 0 4px 8px -4px;
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --display: 'Space Grotesk', var(--sans);
+  --sans: 'Inter', system-ui, 'Segoe UI', Roboto, sans-serif;
+  --display: 'Bricolage Grotesque', var(--sans);
 
   font: 18px/150% var(--sans);
   letter-spacing: 0.1px;
