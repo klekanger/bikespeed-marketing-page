@@ -32,6 +32,11 @@ export interface Dictionary {
     title: string
     items: Feature[]
   }
+  onRoad: {
+    eyebrow: string
+    title: string
+    alt: string
+  }
   gallery: {
     title: string
     captions: {
@@ -97,17 +102,15 @@ export const translations: Record<Locale, Dictionary> = {
     },
     highlights: ['100% Free', 'No Ads', 'No Subscriptions', 'Open Source'],
     features: {
-      title: 'Everything you need, nothing you don’t',
+      title: 'No fluff — just what you need',
       items: [
         {
           title: 'Big, easy-to-read speedometer',
-          description:
-            'A clear, glanceable display designed to be read at a glance while riding.',
+          description: 'Easy to read at a glance while riding.',
         },
         {
           title: 'Metric & imperial units',
-          description:
-            'Switch freely between km/h and mph, whatever you’re used to.',
+          description: 'Switch between km/h and mph.',
         },
         {
           title: 'Trip logging',
@@ -115,20 +118,25 @@ export const translations: Record<Locale, Dictionary> = {
             'Every ride is logged with average speed, max speed, distance and duration.',
         },
         {
-          title: 'Detailed per-trip stats',
+          title: 'Customize the speedometer',
           description:
-            'Dig into the numbers for any past ride, whenever you want.',
+            'Set a max speed — the speedometer works in the car too.',
         },
         {
           title: 'Elevation profile',
           description:
-            'See the elevation profile for every ride you’ve recorded.',
+            "See the elevation profile for every ride you've recorded.",
         },
         {
           title: 'Real-time altitude',
           description: 'Your current altitude above sea level, updated live.',
         },
       ],
+    },
+    onRoad: {
+      eyebrow: 'Big, clear speedometer',
+      title: 'Mount your phone on the handlebar',
+      alt: 'BikeSpeed mounted on a bicycle handlebar, showing the speedometer while riding',
     },
     gallery: {
       title: 'See it in action',
@@ -157,7 +165,7 @@ export const translations: Record<Locale, Dictionary> = {
         },
         {
           heading: 'Location data',
-          body: 'BikeSpeed uses your device’s GPS to calculate speed, distance and altitude while you’re using the app. This location data is processed entirely on your device and is never sent to us or any third party.',
+          body: "BikeSpeed uses your device's GPS to calculate speed, distance and altitude while you're using the app. This location data is processed entirely on your device and is never sent to us or any third party.",
         },
         {
           heading: 'Trip data',
@@ -165,15 +173,15 @@ export const translations: Record<Locale, Dictionary> = {
         },
         {
           heading: 'No analytics or tracking',
-          body: 'BikeSpeed does not use analytics SDKs, advertising identifiers, or any third-party tracking.',
+          body: 'BikeSpeed does not use analytics tools, ad tracking, or any other third-party tracking.',
         },
         {
           heading: 'No account required',
-          body: 'You don’t need to sign up or log in to use BikeSpeed.',
+          body: "You don't need to sign up or log in to use BikeSpeed.",
         },
         {
           heading: 'Open source',
-          body: 'Because BikeSpeed is open source, you can review exactly how the app handles data on GitHub.',
+          body: 'Because BikeSpeed is open source, you can review exactly how the app handles your data.',
         },
         {
           heading: 'Questions',
@@ -183,7 +191,7 @@ export const translations: Record<Locale, Dictionary> = {
     },
     support: {
       title: 'Support',
-      intro: 'Need help with BikeSpeed? Here’s how to get it.',
+      intro: 'Need help with BikeSpeed? Here are some tips:',
       faq: [
         {
           question: 'How do I switch between km/h and mph?',
@@ -197,11 +205,11 @@ export const translations: Record<Locale, Dictionary> = {
         {
           question: 'I found a bug or have a feature request.',
           answer:
-            'Please open an issue on the GitHub repository — that’s the fastest way to reach the developer.',
+            "Please open an issue on the GitHub repository — that's the fastest way to reach the developer.",
         },
         {
           question: 'Is BikeSpeed really free?',
-          answer: 'Yes. No ads, no subscriptions, no in-app purchases — ever.',
+          answer: 'Yes. No ads, no subscriptions, no in-app purchases. Ever.',
         },
       ],
       issuesCta: 'Open an issue on GitHub',
@@ -246,17 +254,15 @@ export const translations: Record<Locale, Dictionary> = {
       'Åpen kildekode',
     ],
     features: {
-      title: 'Alt du trenger, ingenting du ikke trenger',
+      title: 'Ikke noe fjas – bare det du trenger',
       items: [
         {
           title: 'Stort og lettlest speedometer',
-          description:
-            'En tydelig visning som er enkel å lese med et raskt blikk mens du sykler.',
+          description: 'Enkelt å lese med et raskt blikk mens du sykler.',
         },
         {
           title: 'Metriske og imperiale enheter',
-          description:
-            'Bytt fritt mellom km/t og mph, akkurat som du foretrekker.',
+          description: 'Bytt mellom km/t og mph.',
         },
         {
           title: 'Loggfør sykkelturer',
@@ -264,9 +270,9 @@ export const translations: Record<Locale, Dictionary> = {
             'Hver tur logges med gjennomsnittsfart, maksfart, distanse og varighet.',
         },
         {
-          title: 'Detaljert statistikk per tur',
+          title: 'Tilpass speedometeret',
           description:
-            'Dykk ned i tallene for enhver tidligere tur, når du vil.',
+            'Sett makshastighet – speedometeret kan også brukes i bilen.',
         },
         {
           title: 'Høydeprofil',
@@ -277,6 +283,11 @@ export const translations: Record<Locale, Dictionary> = {
           description: 'Din nåværende høyde over havet, oppdatert i sanntid.',
         },
       ],
+    },
+    onRoad: {
+      eyebrow: 'Stort og tydelig speedometer',
+      title: 'Fest mobilen på styret',
+      alt: 'BikeSpeed montert på et sykkelstyre, som viser speedometeret mens du sykler',
     },
     gallery: {
       title: 'Se appen i bruk',
@@ -313,15 +324,15 @@ export const translations: Record<Locale, Dictionary> = {
         },
         {
           heading: 'Ingen analyse eller sporing',
-          body: 'BikeSpeed bruker ingen analyseverktøy, reklame-ID-er eller sporing fra tredjeparter.',
+          body: 'BikeSpeed bruker ingen analyseverktøy, annonsesporing eller annen sporing fra tredjeparter.',
         },
         {
           heading: 'Ingen konto nødvendig',
-          body: 'Du trenger ikke registrere deg eller logge inn for å bruke BikeSpeed.',
+          body: 'Du må ikke registrere deg eller logge inn for å bruke BikeSpeed.',
         },
         {
           heading: 'Åpen kildekode',
-          body: 'Siden BikeSpeed er åpen kildekode, kan du selv se nøyaktig hvordan appen behandler data på GitHub.',
+          body: 'Siden BikeSpeed er åpen kildekode, kan du selv se nøyaktig hvordan appen behandler dine data.',
         },
         {
           heading: 'Spørsmål',
@@ -331,7 +342,7 @@ export const translations: Record<Locale, Dictionary> = {
     },
     support: {
       title: 'Support',
-      intro: 'Trenger du hjelp med BikeSpeed? Her er hvordan du får det.',
+      intro: 'Trenger du hjelp med BikeSpeed? Her er noen tips:',
       faq: [
         {
           question: 'Hvordan bytter jeg mellom km/t og mph?',
@@ -350,7 +361,7 @@ export const translations: Record<Locale, Dictionary> = {
         {
           question: 'Er BikeSpeed virkelig gratis?',
           answer:
-            'Ja. Ingen reklame, ingen abonnementer, ingen kjøp i appen — aldri.',
+            'Ja. Ingen reklame, ingen abonnementer, ingen kjøp i appen. Aldri.',
         },
       ],
       issuesCta: 'Opprett en sak på GitHub',

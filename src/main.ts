@@ -99,6 +99,33 @@ renderPage(`
       </div>
     </section>
 
+    <section class="on-road" data-reveal>
+      <picture>
+        <source
+          type="image/webp"
+          srcset="/photos/on-bike-1600.webp 1600w, /photos/on-bike-2400.webp 2400w"
+          sizes="100vw"
+        />
+        <img
+          class="on-road-photo"
+          src="/photos/on-bike-1600.jpg"
+          srcset="/photos/on-bike-1600.jpg 1600w, /photos/on-bike-2400.jpg 2400w"
+          sizes="100vw"
+          width="2400"
+          height="923"
+          alt=""
+          data-i18n-attr="alt:onRoad.alt"
+          loading="lazy"
+          decoding="async"
+        />
+      </picture>
+      <div class="on-road-scrim" aria-hidden="true"></div>
+      <div class="wrap on-road-content">
+        <p class="on-road-eyebrow" data-i18n="onRoad.eyebrow"></p>
+        <h2 data-i18n="onRoad.title"></h2>
+      </div>
+    </section>
+
     <section class="gallery" data-reveal>
       <div class="wrap">
         <h2 data-i18n="gallery.title"></h2>
