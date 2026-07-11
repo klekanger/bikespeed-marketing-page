@@ -19,6 +19,7 @@ export interface Dictionary {
     support: string
     languageLabel: string
     footerLabel: string
+    backLink: string
   }
   hero: {
     eyebrow: string
@@ -92,6 +93,7 @@ export const translations: Record<Locale, Dictionary> = {
       support: 'Support',
       languageLabel: 'Language',
       footerLabel: 'Footer',
+      backLink: 'Back to homepage',
     },
     hero: {
       eyebrow: 'Retro speedometer app',
@@ -239,6 +241,7 @@ export const translations: Record<Locale, Dictionary> = {
       support: 'Support',
       languageLabel: 'Språk',
       footerLabel: 'Bunntekst',
+      backLink: 'Tilbake til forsiden',
     },
     hero: {
       eyebrow: 'Retro speedometer-app',

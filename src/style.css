@@ -802,3 +802,20 @@ a {
 .support-cta .btn-primary {
   box-shadow: var(--accent-shadow);
 }
+
+.backlink {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 32px;
+}
+
+.backlink a {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.backlink a:hover {
+  color: var(--text-h);
+}
