@@ -153,7 +153,7 @@ export const translations: Record<Locale, Dictionary> = {
       cta: 'View source on GitHub',
     },
     footer: {
-      copyright: '© {year} BikeSpeed. Open source under the MIT license.',
+      copyright: '© {year} Kurt Lekanger. Open source under the MIT license.',
     },
     privacy: {
       title: 'Privacy Policy',
@@ -304,7 +304,7 @@ export const translations: Record<Locale, Dictionary> = {
       cta: 'Se kildekoden på GitHub',
     },
     footer: {
-      copyright: '© {year} BikeSpeed. Åpen kildekode under MIT-lisensen.',
+      copyright: '© {year} Kurt Lekanger. Åpen kildekode under MIT-lisensen.',
     },
     privacy: {
       title: 'Personvernerklæring',
