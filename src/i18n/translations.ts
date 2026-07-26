@@ -26,6 +26,7 @@ export interface Dictionary {
     title: string
     tagline: string
     ctaAppStore: string
+    altAppStore: string
     ctaGithub: string
   }
   highlights: string[]
@@ -108,6 +109,7 @@ export const translations: Record<Locale, Dictionary> = {
       title: 'BikeSpeed',
       tagline: 'A simple, free GPS speedometer for your bike rides.',
       ctaAppStore: 'Download on the App Store',
+      altAppStore: 'Download from App Store',
       ctaGithub: 'View on GitHub',
     },
     highlights: ['100% Free', 'No Ads', 'No Subscriptions', 'Open Source'],
@@ -330,6 +332,7 @@ export const translations: Record<Locale, Dictionary> = {
       title: 'BikeSpeed',
       tagline: 'Et enkelt og gratis GPS-speedometer for sykkelturene dine.',
       ctaAppStore: 'Last ned i App Store',
+      altAppStore: 'Last ned fra App Store',
       ctaGithub: 'Se på GitHub',
     },
     highlights: [

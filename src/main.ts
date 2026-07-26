@@ -96,13 +96,14 @@ renderPage(`
           <h1 data-i18n="hero.title"></h1>
           <p class="hero-tagline" data-i18n="hero.tagline"></p>
           <div class="hero-ctas">
-            <a class="btn-appstore" href="https://apps.apple.com/us/app/bikespeed-gps-speedometer/id6788777869" data-i18n-attr="aria-label:hero.ctaAppStore">
+            <a class="btn-appstore" href="https://apps.apple.com/us/app/bikespeed-gps-speedometer/id6788777869" >
               <img
                 data-appstore
                 src="${appStoreBadge(getLocale())}"
                 alt=""
                 width="120"
                 height="40"
+                data-i18n-attr="alt:hero.altAppStore"
               />
             </a>
             <a
