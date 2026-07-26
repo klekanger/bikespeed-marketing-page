@@ -742,9 +742,11 @@ a {
 .phone-frame img {
   min-width: 0;
   width: 100%;
+  /* Let the width/height attributes' aspect ratio drive height, rather than the
+     literal height attribute being applied as a fixed pixel height. */
+  height: auto;
   display: block;
   border-radius: 16px;
-
 }
 
 .phone-frame:hover {

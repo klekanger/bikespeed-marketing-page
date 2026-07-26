@@ -41,6 +41,18 @@ function screenshotSrc(locale: Locale, file: string): string {
   return `/screenshots/${locale}/${file}`
 }
 
+// Screenshots are 1284×2778 but render at most 280px wide (see .gallery-item in
+// style.css). Serve downscaled variants so desktop pulls a small file while
+// hi-DPI mobile still gets the full-resolution original.
+function screenshotSrcset(locale: Locale, file: string): string {
+  const base = screenshotSrc(locale, file).replace(/\.webp$/, '')
+  return `${base}-320.webp 320w, ${base}-560.webp 560w, ${base}.webp 1284w`
+}
+
+// Frames cap at 280px above the carousel breakpoint; below it each item fills
+// most of the column, so allow a wider slot there.
+const SCREENSHOT_SIZES = '(min-width: 561px) 280px, 90vw'
+
 function appStoreBadge(locale: Locale): string {
   return locale === 'nb'
     ? '/Download_on_the_App_Store_Badge_NO_RGB_blk_100317.svg'
@@ -77,8 +89,13 @@ const galleryFigures = screenshots
           <img
             data-screenshot="${key}"
             src="${screenshotSrc(getLocale(), file)}"
+            srcset="${screenshotSrcset(getLocale(), file)}"
+            sizes="${SCREENSHOT_SIZES}"
+            width="1284"
+            height="2778"
             alt=""
             loading="lazy"
+            decoding="async"
           />
         </div>
         <figcaption data-i18n="gallery.captions.${key}"></figcaption>
@@ -218,7 +235,10 @@ function updateScreenshots(locale: Locale): void {
     .forEach((img) => {
       const key = img.dataset.screenshot
       const match = screenshots.find((s) => s.key === key)
-      if (match) img.src = screenshotSrc(locale, match.file)
+      if (match) {
+        img.src = screenshotSrc(locale, match.file)
+        img.srcset = screenshotSrcset(locale, match.file)
+      }
     })
 }
 
