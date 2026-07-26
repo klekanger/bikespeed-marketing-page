@@ -341,7 +341,7 @@ export const translations: Record<Locale, Dictionary> = {
     whatsNew: {
       badge: 'Versjon 2.0',
       title: 'Nå husker appen turene dine',
-      body: 'Turloggen har blitt enda bedre. For hver tur registrerer rute, samt høyde- og fartsprofil. Turene synkroniseres mellom iPhonene dine via iCloud.',
+      body: 'Turloggen har blitt enda bedre. For hver tur registreres rute, samt høyde- og fartsprofil. Turene synkroniseres mellom iPhonene dine via iCloud.',
       items: [
         'Kart over ruta for hver tur, med fullskjermkart du kan panorere og zoome',
         'Høyde- og fartsprofil tegnet mot distanse',
