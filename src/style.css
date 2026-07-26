@@ -695,17 +695,6 @@ a {
   @media (max-width: 900px) {
     grid-template-columns: repeat(2, 1fr);
   }
-
-  @media (max-width: 560px) {
-    grid-template-columns: minmax(0, 78vw);
-    grid-auto-columns: minmax(0, 78vw);
-    grid-auto-flow: column;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    padding-bottom: 8px;
-    margin: 0 -24px;
-    padding-inline: 24px;
-  }
 }
 
 .gallery-item {
