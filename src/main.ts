@@ -49,9 +49,10 @@ function screenshotSrcset(locale: Locale, file: string): string {
   return `${base}-320.webp 320w, ${base}-560.webp 560w, ${base}.webp 1284w`
 }
 
-// Frames cap at 280px above the carousel breakpoint; below it each item fills
-// most of the column, so allow a wider slot there.
-const SCREENSHOT_SIZES = '(min-width: 561px) 280px, 90vw'
+// Frames cap at 280px above the carousel breakpoint. Below it the grid is two
+// columns, so each image is half the .wrap content box minus the column gap and
+// the phone frame's own padding+border: (100vw - 48 - 28) / 2 - 22.
+const SCREENSHOT_SIZES = '(min-width: 561px) 280px, calc(50vw - 60px)'
 
 function appStoreBadge(locale: Locale): string {
   return locale === 'nb'

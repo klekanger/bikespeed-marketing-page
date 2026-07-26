@@ -13,7 +13,8 @@ export function renderHeader(): string {
         <a href="index.html" class="wordmark">
           <img
             class="wordmark-icon"
-            src="/web-app-manifest-192x192.png"
+            src="/wordmark-64.webp"
+            srcset="/wordmark-64.webp 2x, /wordmark-96.webp 3x"
             alt=""
             aria-hidden="true"
             width="32"
