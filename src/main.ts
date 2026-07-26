@@ -6,18 +6,35 @@ import { translations } from './i18n/translations'
 
 const screenshots = [
   { key: 'gauge', file: '01_gauge.webp' },
-  { key: 'trip', file: '02_trip.webp' },
-  { key: 'settings', file: '03_settings.webp' },
-  { key: 'log', file: 'log.webp' },
+  { key: 'log', file: '02_log.webp' },
+  { key: 'bests', file: '03_bests.webp' },
+  { key: 'map', file: '04_map.webp' },
+  { key: 'profile', file: '05_profile.webp' },
+  { key: 'settings', file: '06_settings.webp' },
 ] as const
 
+// One icon per feature card, in the same order as `features.items` in the dictionary.
 const featureIcons = [
+  // Speedometer
   '<svg viewBox="0 0 24 24" width="24" height="24"><circle cx="12" cy="14" r="8" fill="none" stroke="var(--accent)" stroke-width="2"/><line x1="12" y1="14" x2="17" y2="8" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"/><line x1="12" y1="4" x2="12" y2="6" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"/></svg>',
+  // Metric / imperial
   '<svg viewBox="0 0 24 24" width="24" height="24"><path d="M4 8h12M13 5l3 3-3 3" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 16H8M11 19l-3-3 3-3" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
-  '<svg viewBox="0 0 24 24" width="24" height="24"><rect x="5" y="3" width="14" height="18" rx="2" fill="none" stroke="var(--accent)" stroke-width="2"/><line x1="8" y1="8" x2="16" y2="8" stroke="var(--accent)" stroke-width="1.6" stroke-linecap="round"/><line x1="8" y1="12" x2="16" y2="12" stroke="var(--accent)" stroke-width="1.6" stroke-linecap="round"/><line x1="8" y1="16" x2="13" y2="16" stroke="var(--accent)" stroke-width="1.6" stroke-linecap="round"/></svg>',
-  '<svg viewBox="0 0 24 24" width="24" height="24"><line x1="5" y1="20" x2="5" y2="12" stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round"/><line x1="12" y1="20" x2="12" y2="6" stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round"/><line x1="19" y1="20" x2="19" y2="15" stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round"/></svg>',
-  '<svg viewBox="0 0 24 24" width="24" height="24"><path d="M3 18l6-9 4 5 3-4 5 8z" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></svg>',
+  // Customize
+  '<svg viewBox="0 0 24 24" width="24" height="24"><line x1="4" y1="8" x2="20" y2="8" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"/><line x1="4" y1="16" x2="20" y2="16" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"/><circle cx="9" cy="8" r="2.8" fill="var(--bg)" stroke="var(--accent)" stroke-width="2"/><circle cx="15" cy="16" r="2.8" fill="var(--bg)" stroke="var(--accent)" stroke-width="2"/></svg>',
+  // Auto-pause
+  '<svg viewBox="0 0 24 24" width="24" height="24"><circle cx="12" cy="12" r="9" fill="none" stroke="var(--accent)" stroke-width="2"/><line x1="10" y1="9" x2="10" y2="15" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"/><line x1="14" y1="9" x2="14" y2="15" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"/></svg>',
+  // Climb, descent, gradient
   '<svg viewBox="0 0 24 24" width="24" height="24"><circle cx="12" cy="12" r="9" fill="none" stroke="var(--accent)" stroke-width="2"/><path d="M8 13l4-5 4 5" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><line x1="12" y1="8" x2="12" y2="16" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"/></svg>',
+  // Trip log
+  '<svg viewBox="0 0 24 24" width="24" height="24"><rect x="5" y="3" width="14" height="18" rx="2" fill="none" stroke="var(--accent)" stroke-width="2"/><line x1="8" y1="8" x2="16" y2="8" stroke="var(--accent)" stroke-width="1.6" stroke-linecap="round"/><line x1="8" y1="12" x2="16" y2="12" stroke="var(--accent)" stroke-width="1.6" stroke-linecap="round"/><line x1="8" y1="16" x2="13" y2="16" stroke="var(--accent)" stroke-width="1.6" stroke-linecap="round"/></svg>',
+  // Height & speed profile
+  '<svg viewBox="0 0 24 24" width="24" height="24"><path d="M3 18l6-9 4 5 3-4 5 8z" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></svg>',
+  // Totals & personal bests
+  '<svg viewBox="0 0 24 24" width="24" height="24"><line x1="5" y1="20" x2="5" y2="12" stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round"/><line x1="12" y1="20" x2="12" y2="6" stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round"/><line x1="19" y1="20" x2="19" y2="15" stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round"/></svg>',
+  // iCloud sync
+  '<svg viewBox="0 0 24 24" width="24" height="24"><path d="M7.5 19h9.2a3.8 3.8 0 0 0 .5-7.56A5.4 5.4 0 0 0 7 10.4 4.2 4.2 0 0 0 7.5 19z" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linejoin="round"/></svg>',
+  // GPX export
+  '<svg viewBox="0 0 24 24" width="24" height="24"><path d="M12 4v10" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"/><path d="M8.5 7.5L12 4l3.5 3.5" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 14v4.5A1.5 1.5 0 0 0 6.5 20h11a1.5 1.5 0 0 0 1.5-1.5V14" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
 ]
 
 function screenshotSrc(locale: Locale, file: string): string {
@@ -46,6 +63,10 @@ const featureCards = translations.en.features.items
 
 const highlightItems = translations.en.highlights
   .map((_, i) => `<li data-i18n="highlights.${i}"></li>`)
+  .join('')
+
+const whatsNewItems = translations.en.whatsNew.items
+  .map((_, i) => `<li data-i18n="whatsNew.items.${i}"></li>`)
   .join('')
 
 const galleryFigures = screenshots
@@ -106,6 +127,19 @@ renderPage(`
       <ul>
         ${highlightItems}
       </ul>
+    </section>
+
+    <section class="whats-new" data-reveal>
+      <div class="wrap whats-new-inner">
+        <div class="whats-new-intro">
+          <p class="whats-new-badge" data-i18n="whatsNew.badge"></p>
+          <h2 data-i18n="whatsNew.title"></h2>
+          <p data-i18n="whatsNew.body"></p>
+        </div>
+        <ul class="whats-new-list">
+          ${whatsNewItems}
+        </ul>
+      </div>
     </section>
 
     <section class="features" data-reveal>
