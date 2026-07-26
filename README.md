@@ -9,11 +9,15 @@ The marketing website for **[BikeSpeed](https://github.com/klekanger/BikeSpeed)*
 BikeSpeed turns an iPhone into a fullscreen, handlebar-mounted GPS speedometer styled after vintage 80s car dashboards. It's an intentionally distraction-free app — no setup, no accounts, no configuration.
 
 - Analog speed gauge with a 270° dial and configurable max speed
-- Digital speed readout and heading indicator (arrow + compass letters)
-- Live trip stats: average speed, distance, altitude, GPS coordinates
-- Trip controls (Start, Pause, Reset) with screen-sleep prevention
+- Digital speed readout and heading indicator (arrow + compass letters + street name)
+- Live trip stats: average and max speed, distance, duration, altitude, climb, descent and gradient
+- Auto-pause, and recording that continues with the screen locked
+- Trip log with route maps, height and speed profiles, lifetime totals and personal bests
+- Automatic iCloud sync of the trip log, and GPX export
 - Metric/imperial units and bilingual UI (English & Norwegian)
-- Built in Swift for iOS 17+, MIT licensed
+- Built in Swift for iOS 18+, MIT licensed
+
+The site currently markets **version 2.0.0**.
 
 The app source lives at [github.com/klekanger/BikeSpeed](https://github.com/klekanger/BikeSpeed).
 
