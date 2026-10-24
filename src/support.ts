@@ -1,5 +1,5 @@
 import './style.css'
-import { renderPage, renderI18nList } from './layout'
+import { renderPage, renderI18nList, renderRepoCards } from './layout'
 import { translations } from './i18n/translations'
 
 const faqItems = renderI18nList(
@@ -22,13 +22,8 @@ renderPage(`
         ${faqItems}
       </div>
       <div class="support-cta">
-        <a
-          class="btn btn-primary"
-          href="https://github.com/klekanger/BikeSpeed/issues"
-          target="_blank"
-          rel="noopener"
-          data-i18n="support.issuesCta"
-        ></a>
+        <p data-i18n="support.issuesCta"></p>
+        ${renderRepoCards('/issues')}
       </div>
     </div>
   </main>
