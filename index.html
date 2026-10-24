@@ -16,7 +16,7 @@
   <link rel="preload" href="/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin />
   <title data-i18n="meta.home.title">BikeSpeed — Free GPS Speedometer for Cyclists</title>
   <meta name="description" data-i18n-attr="content:meta.home.description"
-    content="A free GPS speedometer for cyclists, with route maps, ride profiles and iCloud sync. No ads, no subscriptions, open source." />
+    content="A free GPS speedometer for cyclists on iPhone and Android, with route maps, ride profiles and GPX export. No ads, no subscriptions, open source." />
   <link rel="canonical" href="https://bikespeed.no/" />
 
   <meta property="og:type" content="website" />
@@ -24,7 +24,7 @@
   <meta property="og:site_name" content="BikeSpeed" />
   <meta property="og:title" content="BikeSpeed — Free GPS Speedometer for Cyclists" />
   <meta property="og:description"
-    content="A free GPS speedometer for cyclists, with route maps, ride profiles and iCloud sync. No ads, no subscriptions, open source." />
+    content="A free GPS speedometer for cyclists on iPhone and Android, with route maps, ride profiles and GPX export. No ads, no subscriptions, open source." />
   <meta property="og:image" content="https://bikespeed.no/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
@@ -35,11 +35,15 @@
         "@context": "https://schema.org",
         "@type": "MobileApplication",
         "name": "BikeSpeed",
-        "description": "A free GPS speedometer for cyclists, with route maps, ride profiles and iCloud sync. No ads, no subscriptions, open source.",
+        "description": "A free GPS speedometer for cyclists on iPhone and Android, with route maps, ride profiles and GPX export. No ads, no subscriptions, open source.",
         "url": "https://bikespeed.no/",
         "applicationCategory": "SportsApplication",
-        "operatingSystem": "iOS 18",
-        "softwareVersion": "2.0.0",
+        "operatingSystem": "iOS 18, Android 11",
+        "softwareVersion": "2.0",
+        "installUrl": [
+          "https://apps.apple.com/us/app/bikespeed-gps-speedometer/id6788777869",
+          "https://play.google.com/store/apps/details?id=no.lekanger.bikespeed"
+        ],
         "offers": {
           "@type": "Offer",
           "price": "0",
@@ -52,6 +56,12 @@
     window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
   </script>
   <script defer src="/_vercel/insights/script.js"></script>
+  <!-- Privacy-friendly analytics by Plausible -->
+  <script async src="https://plausible.io/js/pa-_nJp3805jHqr-dWndttLw.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+  </script>
 </head>
 
 <body>
