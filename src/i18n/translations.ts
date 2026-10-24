@@ -235,7 +235,7 @@ export const translations: Record<Locale, Dictionary> = {
         },
         {
           heading: 'No analytics or tracking',
-          body: 'BikeSpeed does not use analytics tools, ad tracking, or any other third-party tracking.',
+          body: 'The BikeSpeed app does not use analytics tools, ad tracking, or any other third-party tracking. This website (bikespeed.no) uses Plausible and Vercel Web Analytics to count visits. Both are privacy-friendly and cookieless, and they don’t collect personal data or follow you across other sites.',
         },
         {
           heading: 'No account required',
@@ -469,7 +469,7 @@ export const translations: Record<Locale, Dictionary> = {
         },
         {
           heading: 'Ingen analyse eller sporing',
-          body: 'BikeSpeed bruker ingen analyseverktøy, annonsesporing eller annen sporing fra tredjeparter.',
+          body: 'BikeSpeed-appen bruker ingen analyseverktøy, annonsesporing eller annen sporing fra tredjeparter. Denne nettsiden (bikespeed.no) bruker Plausible og Vercel Web Analytics til å telle besøk. Begge er personvernvennlige og bruker ikke informasjonskapsler, og de samler ikke inn personopplysninger eller følger deg på tvers av andre nettsteder.',
         },
         {
           heading: 'Ingen konto nødvendig',
