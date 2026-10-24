@@ -120,7 +120,7 @@ renderPage(`
           <h1 data-i18n="hero.title"></h1>
           <p class="hero-tagline" data-i18n="hero.tagline"></p>
           <div class="hero-ctas">
-            <a class="btn-appstore" href="https://apps.apple.com/us/app/bikespeed-gps-speedometer/id6788777869" >
+            <a class="btn-appstore" href="https://apps.apple.com/us/app/bikespeed-gps-speedometer/id6788777869" data-store="iOS">
               <img
                 data-appstore
                 src="${appStoreBadge(getLocale())}"
@@ -130,7 +130,7 @@ renderPage(`
                 data-i18n-attr="alt:hero.altAppStore"
               />
             </a>
-            <a class="btn-appstore" href="https://play.google.com/store/apps/details?id=no.lekanger.bikespeed">
+            <a class="btn-appstore" href="https://play.google.com/store/apps/details?id=no.lekanger.bikespeed" data-store="Android">
               <img
                 data-googleplay
                 src="${googlePlayBadge(getLocale())}"
@@ -257,6 +257,23 @@ function updateAppStoreBadge(locale: Locale): void {
       img.src = googlePlayBadge(locale)
     })
 }
+
+declare global {
+  interface Window {
+    plausible?: (event: string, options?: { props?: Record<string, string> }) => void
+  }
+}
+
+// Count store badge clicks as a Plausible custom event, split by platform.
+document
+  .querySelectorAll<HTMLAnchorElement>('[data-store]')
+  .forEach((link) => {
+    link.addEventListener('click', () => {
+      window.plausible?.('Download Click', {
+        props: { platform: link.dataset.store ?? '' },
+      })
+    })
+  })
 
 document.addEventListener('bikespeed:localechange', (e) => {
   const locale = (e as CustomEvent<Locale>).detail
